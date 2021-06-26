@@ -33,9 +33,8 @@ export function SignIn() {
         </Text>
 
         <Text style={styles.subtitle}>
-          Conecte-se {`\n`}
-          e organize suas {`\n`}
-          jogatinas
+          Crie grupos para jogar seus games {`\n`}
+          favoritos com seus amigos
         </Text>
 
         <ButtonIcon
