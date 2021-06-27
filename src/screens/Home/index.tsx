@@ -52,12 +52,17 @@ export function Home() {
     navigation.navigate('AppointmentDetails');
   }
 
+  function handleAppointmentCreate() {
+    console.log('cheagou')
+    navigation.navigate('AppointmentCreate');
+  }
+
   return (
     <Background>
       <View>
         <View style={styles.header}>
           <Profile />
-          <ButtonAdd />
+          <ButtonAdd onPress={handleAppointmentCreate} />
         </View>
 
         <CategorySelect
