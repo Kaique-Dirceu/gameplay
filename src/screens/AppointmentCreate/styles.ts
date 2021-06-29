@@ -15,15 +15,15 @@ export const styles = StyleSheet.create({
     marginTop: 32
   },
   select: {
+    flexDirection: 'row',
     width: '100%',
     height: 68,
-    flexDirection: 'row',
     borderColor: theme.colors.secondary50,
     borderWidth: 1,
     borderRadius: 8,
     alignItems: 'center',
     paddingRight: 25,
-    overflow: 'hidden'
+    overflow: 'hidden',
   },
   selectBody: {
     flex: 1,
@@ -34,7 +34,7 @@ export const styles = StyleSheet.create({
     height: 68,
     backgroundColor: theme.colors.secondary50,
     borderWidth: 1,
-    borderRadius: 8
+    borderRadius: 8,
   },
   field: {
     width: '100%',
@@ -48,7 +48,7 @@ export const styles = StyleSheet.create({
   },
   divider: {
     marginRight: 4,
-    fontSize: 18,
+    fontSize: 15,
     fontFamily: theme.fonts.text500,
     color: theme.colors.highlight
   },
@@ -61,4 +61,4 @@ export const styles = StyleSheet.create({
     marginVertical: 20,
     marginBottom: 56,
   }
-})
+});

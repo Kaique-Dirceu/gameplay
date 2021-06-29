@@ -53,7 +53,6 @@ export function Home() {
   }
 
   function handleAppointmentCreate() {
-    console.log('cheagou')
     navigation.navigate('AppointmentCreate');
   }
 
@@ -62,7 +61,9 @@ export function Home() {
       <View>
         <View style={styles.header}>
           <Profile />
-          <ButtonAdd onPress={handleAppointmentCreate} />
+          <ButtonAdd
+            onPress={handleAppointmentCreate}
+          />
         </View>
 
         <CategorySelect

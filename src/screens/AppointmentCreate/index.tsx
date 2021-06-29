@@ -11,12 +11,14 @@ import { Feather } from '@expo/vector-icons';
 import { RectButton } from 'react-native-gesture-handler';
 
 import { Background } from '../../components/Background';
+import { ModalView } from '../../components/ModalView';
 import { CategorySelect } from '../../components/CategorySelect';
 import { Header } from '../../components/Header';
 import { GuildIcon } from '../../components/GuildIcon';
 import { SmallInput } from '../../components/SmallInput';
 import { TextArea } from '../../components/TextArea';
 import { Button } from '../../components/Button';
+import { Guilds } from '../Guilds';
 
 import { theme } from '../../global/styles/theme';
 import { styles } from './styles';
@@ -64,13 +66,13 @@ export function AppointmentCreate() {
                 <Text style={styles.label}>
                   Selecione um servidor
                 </Text>
-
-                <Feather
-                  name="chevron-right"
-                  color={theme.colors.heading}
-                  size={18}
-                />
               </View>
+
+              <Feather
+                name="chevron-right"
+                color={theme.colors.heading}
+                size={18}
+              />
             </View>
           </RectButton>
 
@@ -102,33 +104,36 @@ export function AppointmentCreate() {
                 <SmallInput maxLength={2} />
               </View>
             </View>
+          </View>
 
+
+          <View style={[styles.field, { marginBottom: 12 }]}>
+            <Text style={styles.label}>
+              Descrição
+            </Text>
+
+            <Text style={styles.caracteresLimit}>
+              Max 100 caracteres
+            </Text>
+          </View>
+          <TextArea
+            multiline
+            maxLength={100}
+            numberOfLines={5}
+            autoCorrect={false}
+          />
+
+          <View style={styles.footer}>
+            <Button
+              title="Agendar"
+            />
           </View>
         </View>
-
-        <View style={[styles.field, { marginBottom: 12 }]}>
-          <Text style={styles.label}>
-            Descrição
-          </Text>
-
-          <Text style={styles.caracteresLimit}>
-            Max 100 caracteres
-          </Text>
-        </View>
-        <TextArea
-          multiline
-          maxLength={100}
-          numberOfLines={5}
-          autoCorrect={false}
-        />
-
-        <View style={styles.footer}>
-          <Button
-            title="Agendar"
-          />
-        </View>
-
       </ScrollView>
+
+      <ModalView visible={true}>
+        <Guilds />
+      </ModalView>
     </KeyboardAvoidingView>
   );
 }
