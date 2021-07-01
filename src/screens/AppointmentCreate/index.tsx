@@ -22,10 +22,22 @@ import { Guilds } from '../Guilds';
 
 import { theme } from '../../global/styles/theme';
 import { styles } from './styles';
+import { GuildProps } from '../../components/Guild';
 
 
 export function AppointmentCreate() {
   const [category, setCategory] = useState('');
+  const [openGuildsModal, setOpenGuildsModal] = useState(false);
+  const [guild, setGuild] = useState<GuildProps>({} as GuildProps);
+
+  function handleOpenGuilds() {
+    setOpenGuildsModal(true);
+  }
+
+  function hanleGuildsSelect(guildSelect: GuildProps) {
+    setGuild(guildSelect);
+    setOpenGuildsModal(false);
+  }
 
   return (
     <KeyboardAvoidingView
@@ -55,16 +67,21 @@ export function AppointmentCreate() {
         />
 
         <View style={styles.form}>
-          <RectButton>
+          <RectButton onPress={handleOpenGuilds}>
             <View style={styles.select}>
               {
-                /*<View style={styles.image} />*/
-                <GuildIcon />
+                guild.icon
+                  ? <GuildIcon />
+                  : <View style={styles.image} />
               }
 
               <View style={styles.selectBody}>
                 <Text style={styles.label}>
-                  Selecione um servidor
+                  {
+                    guild.name
+                      ? guild.name
+                      : 'Selecione um servidor'
+                  }
                 </Text>
               </View>
 
@@ -131,8 +148,8 @@ export function AppointmentCreate() {
         </View>
       </ScrollView>
 
-      <ModalView visible={true}>
-        <Guilds />
+      <ModalView visible={openGuildsModal}>
+        <Guilds handleGuildSelect={hanleGuildsSelect} />
       </ModalView>
     </KeyboardAvoidingView>
   );
